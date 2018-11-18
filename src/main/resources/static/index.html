@@ -6,7 +6,23 @@
 </head>
 <body>
 
-Hello World
+<input type="text" id="userAge">
+<button type="button" onclick="getUser()">GET USERS</button>
+
+<script>
+    function getUser() {
+        let userAge =
+            document.getElementById('userAge').value;
+        fetch('/users/age/' + userAge)
+            .then(function (response) {
+                response.json()
+                    .then(function (data) {
+                        console.log(data);
+                    })
+            });
+
+    }
+</script>
 
 </body>
 </html>
